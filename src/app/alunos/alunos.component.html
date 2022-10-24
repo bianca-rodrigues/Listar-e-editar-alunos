@@ -1,10 +1,29 @@
-<h2>{{ aluno.name | uppercase }}</h2>
-<div><span>id: </span>{{aluno.id}}</div>
-<div><span>name: </span>{{aluno.name}}</div>
-<div><span>age: </span>{{aluno.age}}</div>
-<div><span>city: </span>{{aluno.city}}</div>
+<h2>Alunos</h2>
 
-<div>
-    <label for="name">Nome do Aluno:</label>
-    <input id="name" [(ngModel)] = "aluno.name" type="text">
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Nome</td>
+        <td>Idade</td>
+        <td>Cidade</td>
+    </tr>
+    <tr *ngFor="let aluno of alunos" (click)="onSelect(aluno)">
+        <td><span>{{aluno.id}}</span></td>
+        <td>{{aluno.name}}</td>
+        <td>{{aluno.age}}</td>
+        <td>{{aluno.city}}</td>
+    </tr>
+</table>
+
+<div *ngIf="selectedAluno">
+    <h2>{{ selectedAluno.name | uppercase }}</h2>
+    <div><span>id: </span>{{selectedAluno.id}}</div>
+    <div><span>name: </span>{{selectedAluno.name}}</div>
+    <div><span>age: </span>{{selectedAluno.age}}</div>
+    <div><span>city: </span>{{selectedAluno.city}}</div>
+
+    <div>
+        <label for="name">Nome do Aluno:</label>
+        <input id="name" [(ngModel)] = "selectedAluno.name" type="text">
+    </div>
 </div>
