@@ -1,1 +1,10 @@
-<p>alunos works!</p>
+<h2>{{ aluno.name | uppercase }}</h2>
+<div><span>id: </span>{{aluno.id}}</div>
+<div><span>name: </span>{{aluno.name}}</div>
+<div><span>age: </span>{{aluno.age}}</div>
+<div><span>city: </span>{{aluno.city}}</div>
+
+<div>
+    <label for="name">Nome do Aluno:</label>
+    <input id="name" [(ngModel)] = "aluno.name" type="text">
+</div>
